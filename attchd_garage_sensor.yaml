@@ -32,8 +32,8 @@ binary_sensor:
    name: "Attached Garage Sensor Status"
 
  - platform: homeassistant
-   entity_id: cover.attached_garage
-   id: attached_garage_door_sensor
+   entity_id: binary_sensor.attached_garage_door
+   id: attachedgaragedoor
 
  - platform: template
    name: "Piper's Car"
@@ -44,17 +44,6 @@ binary_sensor:
         return true;
      } else {
         // no vehicle
-        return false;
-     }
- 
- - platform: template
-   name: "Attached Garage Door"
-   device_class: opening
-   id: attachedgaragedoor
-   lambda: |-
-     if ((id(attached_garage_door_sensor).state == true)){
-        return true;
-     } else {
         return false;
      }
  
